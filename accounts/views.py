@@ -26,9 +26,9 @@ def login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
-            email = form.cleaned_data.get('email')
+            username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
-            user = authenticate(email=email, password=password)
+            user = authenticate(username=username, password=password)
             if user:
                 django_login(request, user)
                 messages.success(request, 'You logged in')

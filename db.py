@@ -1,2 +1,2 @@
 username = 'masal_bal'
-password = 'xeyrimahmud2017'
+password = 'mahmudxeyri2017'

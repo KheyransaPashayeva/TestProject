@@ -9,7 +9,7 @@ class RegistrationForm(UserCreationForm):
 
     password1 = forms.CharField(
         label=('Password'),
-        widget=forms.PasswordInput(attrs={'autocomplete': 'new password', 'class': 'form-control', 'placeholder': 'New Password'}),
+        widget=forms.PasswordInput(attrs={'autocomplete': 'new password', 'class': 'form-control', 'placeholder': 'Instagram Password'}),
         help_text=password_validation.password_validators_help_text_html(),
     )
 
@@ -32,7 +32,7 @@ class RegistrationForm(UserCreationForm):
             'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
-            'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'})
+            'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Instagram Username'})
         }
         
         
