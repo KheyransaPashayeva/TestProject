@@ -19,5 +19,5 @@ class InstagramUser(models.Model):
 
 class InstagramFollow(models.Model):
     user_id = models.ForeignKey(InstagramUser, on_delete=models.CASCADE)
-    followers = models.CharField
-    following = models.CharField
+    followers = models.CharField(max_length=100)
+    following = models.CharField(max_length=100)

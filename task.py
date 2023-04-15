@@ -11,9 +11,9 @@ def instabot(link, username, password):
     Browser(link, username, password)
 
 app.conf.beat_schedule = {
-    'run-bot-every-1-minutes':{
+    'run-bot-every-10-minutes':{
         'task': 'bot.instabot',
         'args': ('link','username','password'),
-        'schedule' : timedelta(minutes=1)
+        'schedule' : timedelta(minutes=10)
     }
 }

@@ -18,6 +18,7 @@ class Browser:
         Browser.login(self)
 
     def login(self):
+        from accounts.models import InstagramUser, InstagramFollow
         username = self.browser.find_element(By.NAME, 'username')
         password = self.browser.find_element(By.NAME,'password')
         username.send_keys(self.username)
@@ -33,10 +34,12 @@ class Browser:
         print(f"Followers: {followers}")
         print(f"Following: {following}")
         user = InstagramUser.objects.filter(username=self.username).first()
-        new_follower=InstagramFollow.objects.create(user_id=user)
         follow_data = InstagramFollow.objects.filter(user_id=user).first()
-        follow_data.followers = followers
-        follow_data.following = following
-        follow_data.save()
+        if follow_data:
+            follow_data.followers = followers
+            follow_data.following = following
+            follow_data.save()
+        InstagramFollow.objects.create(user_id=user, followers = followers, following = following)
+        
         print("Data saved.")
         self.browser.close()
