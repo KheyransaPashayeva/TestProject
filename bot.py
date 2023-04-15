@@ -14,6 +14,7 @@ class Browser:
     def goInstargram(self):
         self.browser.get(self.link)
         time.sleep(2)
+        print("Logging in...")
         Browser.login(self)
 
     def login(self):
@@ -23,14 +24,19 @@ class Browser:
         password.send_keys(self.password)
         btn = self.browser.find_element(By.XPATH, '//*[@id="loginForm"]/div/div[3]/button')
         btn.click()
+        print("Logged in. Retrieving follower and following data...")
         self.browser.get(f'{self.link}/{self.username}')
         time.sleep(5)
         data = self.browser.find_elements(By.CSS_SELECTOR, 'span._ac2a')
         followers = data[1].text
         following = data[2].text
+        print(f"Followers: {followers}")
+        print(f"Following: {following}")
         user = InstagramUser.objects.filter(username=self.username).first()
+        new_follower=InstagramFollow.objects.create(user_id=user)
         follow_data = InstagramFollow.objects.filter(user_id=user).first()
         follow_data.followers = followers
         follow_data.following = following
         follow_data.save()
+        print("Data saved.")
         self.browser.close()

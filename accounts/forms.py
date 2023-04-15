@@ -9,7 +9,7 @@ class RegistrationForm(UserCreationForm):
 
     password1 = forms.CharField(
         label=('Password'),
-        widget=forms.PasswordInput(attrs={'autocomplete': 'new password', 'class': 'form-control', 'placeholder': 'Instagram Password'}),
+        widget=forms.PasswordInput(attrs={'autocomplete': 'new password', 'class': 'form-control', 'placeholder': 'New Password'}),
         help_text=password_validation.password_validators_help_text_html(),
     )
 
@@ -32,10 +32,10 @@ class RegistrationForm(UserCreationForm):
             'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
-            'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Instagram Username'})
+            'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'})
         }
         
         
 class LoginForm(forms.Form):
     email = forms.EmailField(max_length=50, widget=forms.EmailInput(attrs = {'class': 'form-control', 'placeholder': 'E-mail'}))    
-    password = forms.CharField(max_length=50, widget=forms.PasswordInput(attrs = {'class': 'form-control', 'placeholder': 'Password'}))        
+    password = forms.CharField(max_length=50, widget=forms.PasswordInput(attrs = {'class': 'form-control', 'placeholder': 'Password'})) 

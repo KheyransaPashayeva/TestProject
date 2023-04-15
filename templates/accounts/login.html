@@ -105,20 +105,27 @@
             <br/>
         {% endif %}
         <h1>Login</h1>
-        <form method="post" action="{% url 'index:instagram' %}" class='form-control'>
+        <form method="post" action="{% url 'index:add_instagram' %}" class='form-control'>
             {% csrf_token %}
-            <li class="col-md-12">
-              <label> Username
-              {{form.username}}
-              </label>
-            </li>
-            <!-- LAST NAME -->
-            <li class="col-md-12">
-              <label> PASSWORD
-            {{form.password}}
-              </label>
-            </li>
-            
+              
+              <ul class="row">
+                    
+                <!-- Name -->
+                <li class="col-md-12">
+                  <label> EMAIL
+                  {{form.email}}
+                  </label>
+                </li>
+                <!-- LAST NAME -->
+                <li class="col-md-12">
+                  <label> PASSWORD
+                {{form.password}}
+                  </label>
+                </li>
+                
+  
+ 
+              </ul>
             <input class="btn btn-primary" type="submit" value="Login"/>
         </form>
         <br/>
